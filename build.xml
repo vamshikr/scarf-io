@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build" name="scarf-io3">
+  <property name="swampbin" value="swampbin"/>
+  <property name="source" value="1.8"/>
+  <property name="target" value="1.8"/>
+  <path id="project.classpath">
+    <pathelement location="bin"/>
+  </path>
+  <path id="project.bootclasspath"/>
+  <path id="project.sourcepath">
+    <pathelement location="src"/>
+  </path>
+  <target name="clean">
+    <delete dir="bin"/>
+  </target>
+  <target name="init">
+    <mkdir dir="bin"/>
+    <mkdir dir="bin"/>
+  </target>
+  <target depends="init" name="build">
+    <javac bootclasspathref="project.bootclasspath" classpathref="project.classpath" destdir="bin" encoding="UTF-8" includeantruntime="false" source="${source}" sourcepathref="project.sourcepath" target="${target}">
+      <src path="src"/>
+    </javac>
+  </target>
+</project>
