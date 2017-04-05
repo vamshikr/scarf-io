@@ -2,6 +2,7 @@ package parser;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,7 @@ public class ScarfXmlReader {
 	}
 
 	private void parse() {
-		try { 
-			int eventType = reader.getEventType();
+		try {
 			while (reader.hasNext()) {
 				if (reader.next() == XMLEvent.START_ELEMENT) {
 		        	String elementName = reader.getLocalName();
@@ -91,14 +91,16 @@ public class ScarfXmlReader {
 	}
 	
 	private String getChars(String endEvent) {
+		String ret_val = "";
 		try {
 			int eventType = reader.next();
 			while (reader.hasNext()) {
 				if (isEndElement(endEvent)) {
-					return "";
+					break;
 				}
 				if (eventType == XMLEvent.CHARACTERS) {
-					return reader.getText();
+					ret_val = reader.getText();
+					break;
 				}
 			}
 		} catch (XMLStreamException e) {
@@ -106,7 +108,7 @@ public class ScarfXmlReader {
 			//e.printStackTrace();
 			logger.error("Parsing error", e);
 		}
-		return "";
+		return ret_val;
 	}
 	
 	private List<MetricSummary> handleMetricSummaries() {
@@ -164,6 +166,7 @@ public class ScarfXmlReader {
 						break;
 					default:
 						System.err.println("Unknown metrics element");
+						break;
 					}
 				}
 				else {
@@ -229,6 +232,7 @@ public class ScarfXmlReader {
 						break;
 					default:
 						System.err.println("Unknown BugInstance element");
+						break;
 					}
 				}
 				else {
@@ -262,6 +266,7 @@ public class ScarfXmlReader {
 							break;
 						default:
 							System.err.println("Unknown BugTrace element");
+							break;
 					}
 				}
 				else {
@@ -270,7 +275,7 @@ public class ScarfXmlReader {
 					}
 				}
 			}
-		} catch (Exception e) {
+		} catch (XMLStreamException e) {
 			//e.printStackTrace();
 			logger.error("Error while handling Metric Summaries", e);
 		}
@@ -296,6 +301,8 @@ public class ScarfXmlReader {
 								case Constants.LINE_NUM_END:
 									il.setEndLine(Integer.parseInt(getChars(Constants.INSTANCE_LOCATION_LINE_NUM)));
 									break;
+								default:
+									break;
 								}
 							}
 							else {
@@ -313,7 +320,7 @@ public class ScarfXmlReader {
 					}
 				}
 			}
-		} catch (Exception e) {
+		} catch (XMLStreamException e) {
 			//e.printStackTrace();
 			logger.error("Error while handling Metric Summaries", e);
 		}
@@ -335,7 +342,7 @@ public class ScarfXmlReader {
 					}
 				}
 			}
-		} catch (Exception e) {
+		} catch (XMLStreamException e) {
 			//e.printStackTrace();
 			logger.error("Error while handling Metric Summaries", e);
 		}
@@ -431,6 +438,7 @@ public class ScarfXmlReader {
 						break;
 					default:
 						System.err.println("Unknown BugLocation child element");
+						break;
 					}
 				}
 				else {
@@ -475,6 +483,7 @@ public class ScarfXmlReader {
 						break;
 					default:
 						System.err.println("Unknown Metrics element");
+						break;
 					}
 				}
 				else {
@@ -503,7 +512,9 @@ public class ScarfXmlReader {
 			XMLInputFactory factory = XMLInputFactory.newInstance();
 			InputStream stream = new FileInputStream(f);
 			reader = factory.createXMLStreamReader(stream);
-		} catch (Exception e) {
+		} catch (FileNotFoundException e) {
+			System.err.println("Error: Unable to open XML stream in specified file");
+		}catch (XMLStreamException e) {
 			System.err.println("Error: Unable to open XML stream in specified file");
 		}
 		parse();
