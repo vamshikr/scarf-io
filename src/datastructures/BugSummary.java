@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BugSummary {
-	List<BugCategory> list;
+	private final List<BugCategory> list;
 	
 	public BugSummary() {
 		list = new ArrayList<>();

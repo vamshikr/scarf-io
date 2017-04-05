@@ -1,8 +1,8 @@
 package datastructures;
 
 public class Location {
-	private String id;
-	private boolean primary;
+	private final String id;
+	private final boolean primary;
 	private int startLine;
 	private int endLine;
 	private int startColumn;

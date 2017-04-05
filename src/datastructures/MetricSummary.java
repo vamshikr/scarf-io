@@ -76,15 +76,15 @@ public class MetricSummary {
 	
 	@Override
 	public String toString() {
-		String result = "Metric type: " + metricType + "\n";
-		result += "Count: " + count + "\n";
-		result += "Sum: " + sum + "\n";
-		result += "Sum of Squares: " + sumOfSquares + "\n";
-		result += "Min: " + min + "\n";
-		result += "Max: " + max + "\n";
-		result += "Average: " + average + "\n";
-		result += "Standard Deviation: " + stdDev + "\n";
-		return result;
+		StringBuilder result = new StringBuilder("Metric type: " + metricType + "\n");
+		result.append("Count: " + count + "\n");
+		result.append("Sum: " + sum + "\n");
+		result.append("Sum of Squares: " + sumOfSquares + "\n");
+		result.append("Min: " + min + "\n");
+		result.append("Max: " + max + "\n");
+		result.append("Average: " + average + "\n");
+		result.append("Standard Deviation: " + stdDev + "\n");
+		return result.toString();
 	}
 	
 }

@@ -1,3 +1,4 @@
+package parser;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,8 +27,8 @@ import org.slf4j.LoggerFactory;
 
 public class ScarfXmlReader {
 	private XMLStreamReader reader;
-	private ScarfInterface scarfCallbacks;
-	private Logger logger;
+	private final ScarfInterface scarfCallbacks;
+	private final Logger logger;
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
@@ -495,7 +496,7 @@ public class ScarfXmlReader {
 		return metric;
 	}
 	private boolean isEndElement(String name) {
-		return (reader.getEventType() == XMLEvent.END_ELEMENT) && (reader.getLocalName().equals(name));
+		return (reader.getEventType() == XMLEvent.END_ELEMENT) && reader.getLocalName().equals(name);
 	}
 	
 	public void parseFromFile(File f) {

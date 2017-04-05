@@ -1,10 +1,10 @@
 package datastructures;
 
 public class BugCategory {
-	private int count;
-	private int byteCount;
-	private String bugCode;
-	private String bugGroup;
+	private final int count;
+	private final int byteCount;
+	private final String bugCode;
+	private final String bugGroup;
 	
 	public BugCategory(int cnt, int bytes, String code, String group) {
 		count = cnt;
@@ -31,10 +31,10 @@ public class BugCategory {
 	
 	@Override
 	public String toString() {
-		String result = "Count: " + count + "\n";
-		result += "Byte Count: " + byteCount + "\n";
-		result += "Bug Code: " + bugCode + "\n";
-		result += "Bug Group: " + bugGroup + "\n";
-		return result;
+		StringBuilder result = new StringBuilder("Count: " + count + "\n");
+		result.append("Byte Count: " + byteCount + "\n");
+		result.append("Bug Code: " + bugCode + "\n");
+		result.append("Bug Group: " + bugGroup + "\n");
+		return result.toString();
 	}
 }

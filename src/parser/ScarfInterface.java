@@ -1,3 +1,4 @@
+package parser;
 
 import datastructures.BugInstance;
 import datastructures.BugSummary;

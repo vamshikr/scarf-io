@@ -1,9 +1,9 @@
 package datastructures;
 
 public class InitialInfo {
-	private String toolName;
-	private String toolVersion;
-	private String uuid;
+	private final String toolName;
+	private final String toolVersion;
+	private final String uuid;
 	
 	public InitialInfo(String toolName, String toolVersion, String uuid) {
 		this.toolName = toolName;

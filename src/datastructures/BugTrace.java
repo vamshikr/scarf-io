@@ -1,9 +1,13 @@
 package datastructures;
 
 public class BugTrace {
-	private String buildId;
+	private transient String buildId;
 	private String assessmentReportFile;
 	private InstanceLocation instanceLocation;
+	
+	public BugTrace() {
+		
+	}
 	
 	public void setBuildID(String id) {
 		buildId = id;
@@ -31,10 +35,10 @@ public class BugTrace {
 	
 	@Override
 	public String toString() {
-		String result = "Build ID: " + buildId + "\n";
-		result += "Assessment Report File: " + assessmentReportFile + "\n";
-		if (instanceLocation != null) { result += instanceLocation.toString(); }
-		return result;
+		StringBuilder result = new StringBuilder("Build ID: " + buildId + "\n");
+		result.append("Assessment Report File: " + assessmentReportFile + "\n");
+		if (instanceLocation != null) { result.append(instanceLocation.toString()); }
+		return result.toString();
 	}
 	
 }

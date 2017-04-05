@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BugInstance {
-	private int bugId;
-	private List<Integer> cweIds;
-	private List<Method> methods;
-	private List<Location> locations;
+	private final int bugId;
+	private final List<Integer> cweIds;
+	private final List<Method> methods;
+	private final List<Location> locations;
 	private InstanceLocation instanceLoc;
 	private String className;
 	private String bugSeverity;
@@ -153,18 +153,18 @@ public class BugInstance {
 	
 	@Override
 	public String toString() {
-		String result = "Bug id: " + bugId + "\n";
-		result += "Class name: " + className + "\n";
-		result += "Bug severity: " + bugSeverity + "\n";
-		result += "Bug rank: " + bugRank + "\n";
-		result += "Resolution suggestion: " + resolutionSuggestion + "\n";
-		result += "Bug message: " + bugMessage + "\n";
-		result += "Bug code: " + bugCode + "\n";
-		result += "Bug group: " + bugGroup + "\n";
-		result += "Assessment report file: " + assessmentReportFile + "\n";
-		result += "Build ID: " + buildId + "\n";
-		result += "Bug Trace: " + bugTrace.toString() + "\n";
-		return result;
+		StringBuilder result = new StringBuilder("Bug id: " + bugId + "\n");
+		result.append("Class name: " + className + "\n");
+		result.append("Bug severity: " + bugSeverity + "\n");
+		result.append("Bug rank: " + bugRank + "\n");
+		result.append("Resolution suggestion: " + resolutionSuggestion + "\n");
+		result.append("Bug message: " + bugMessage + "\n");
+		result.append("Bug code: " + bugCode + "\n");
+		result.append("Bug group: " + bugGroup + "\n");
+		result.append("Assessment report file: " + assessmentReportFile + "\n");
+		result.append("Build ID: " + buildId + "\n");
+		result.append("Bug Trace: " + bugTrace.toString() + "\n");
+		return result.toString();
 	}
 }
 

@@ -1,9 +1,9 @@
 package datastructures;
 
 public class Method {
-	private String id;
-	private String name;
-	private boolean isPrimary;
+	private final String id;
+	private final String name;
+	private final boolean isPrimary;
 	
 	public Method(String id, String name, boolean primary) {
 		this.id = id;
