@@ -28,12 +28,10 @@ import org.slf4j.LoggerFactory;
 public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private final ScarfInterface scarfCallbacks;
-	private final Logger logger;
+	private static final Logger logger = LoggerFactory.getLogger(ScarfXmlReader.class);
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
-		logger = LoggerFactory.getLogger(ScarfXmlReader.class);
-	    logger.info("Hello World");
 	}
 
 	private void parse() {
@@ -46,7 +44,8 @@ public class ScarfXmlReader {
 		        }
 			}
 		} catch (XMLStreamException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error", e);
 		}
 		try {
 			reader.close();

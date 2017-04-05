@@ -19,7 +19,7 @@ public class BugSummary {
 	
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (BugCategory c : list) {
 			sb.append(c);
 		}

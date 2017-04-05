@@ -153,17 +153,17 @@ public class BugInstance {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Bug id: " + bugId + "\n");
-		result.append("Class name: " + className + "\n");
-		result.append("Bug severity: " + bugSeverity + "\n");
-		result.append("Bug rank: " + bugRank + "\n");
-		result.append("Resolution suggestion: " + resolutionSuggestion + "\n");
-		result.append("Bug message: " + bugMessage + "\n");
-		result.append("Bug code: " + bugCode + "\n");
-		result.append("Bug group: " + bugGroup + "\n");
-		result.append("Assessment report file: " + assessmentReportFile + "\n");
-		result.append("Build ID: " + buildId + "\n");
-		result.append("Bug Trace: " + bugTrace.toString() + "\n");
+		StringBuilder result = new StringBuilder("Bug id: " + bugId + "\n" + 
+		"Class name: " + className + "\n" + 
+		"Bug severity: " + bugSeverity + "\n" + 
+		"Bug rank: " + bugRank + "\n" + 
+		"Resolution suggestion: " + resolutionSuggestion + "\n" + 
+		"Bug message: " + bugMessage + "\n" + 
+		"Bug code: " + bugCode + "\n" + 
+		"Bug group: " + bugGroup + "\n" + 
+		"Assessment report file: " + assessmentReportFile + "\n" + 
+		"Build ID: " + buildId + "\n" + 
+		"Bug Trace: " + bugTrace.toString() + "\n");
 		return result.toString();
 	}
 }

@@ -48,11 +48,11 @@ public class Metric {
 	
 	@Override 
 	public String toString() {
-		StringBuilder result = new StringBuilder("Location: " + location + "\n");
-		result.append("Class Name: " + className + "\n");
-		result.append("Method Name: " + methodName + "\n");
-		result.append("Metric Type: " + metricType + "\n");
-		result.append("Metric Value: " + metricValue + "\n");
+		StringBuilder result = new StringBuilder("Location: " + location + "\n" + 
+		"Class Name: " + className + "\n" + 
+		"Method Name: " + methodName + "\n" + 
+		"Metric Type: " + metricType + "\n" + 
+		"Metric Value: " + metricValue + "\n"); 
 		return result.toString();
 	}
 

@@ -76,14 +76,14 @@ public class MetricSummary {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Metric type: " + metricType + "\n");
-		result.append("Count: " + count + "\n");
-		result.append("Sum: " + sum + "\n");
-		result.append("Sum of Squares: " + sumOfSquares + "\n");
-		result.append("Min: " + min + "\n");
-		result.append("Max: " + max + "\n");
-		result.append("Average: " + average + "\n");
-		result.append("Standard Deviation: " + stdDev + "\n");
+		StringBuilder result = new StringBuilder("Metric type: " + metricType + "\n" + 
+		"Count: " + count + "\n" + 
+		"Sum: " + sum + "\n" + 
+		"Sum of Squares: " + sumOfSquares + "\n" + 
+		"Min: " + min + "\n" + 
+		"Max: " + max + "\n" + 
+		"Average: " + average + "\n" + 
+		"Standard Deviation: " + stdDev + "\n"); 
 		return result.toString();
 	}
 	

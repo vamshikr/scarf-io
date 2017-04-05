@@ -31,10 +31,10 @@ public class BugCategory {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Count: " + count + "\n");
-		result.append("Byte Count: " + byteCount + "\n");
-		result.append("Bug Code: " + bugCode + "\n");
-		result.append("Bug Group: " + bugGroup + "\n");
+		StringBuilder result = new StringBuilder("Count: " + count + "\n" + 
+		"Byte Count: " + byteCount + "\n" + 
+		"Bug Code: " + bugCode + "\n" + 
+		"Bug Group: " + bugGroup + "\n"); 
 		return result.toString();
 	}
 }

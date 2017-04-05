@@ -31,9 +31,9 @@ public class InstanceLocation {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Start line: " + startLine + "\n");
-		result.append("End line: " + endLine + "\n");
-		result.append("XPath: " + xPath + "\n");
+		StringBuilder result = new StringBuilder("Start line: " + startLine + "\n" + 
+		"End line: " + endLine + "\n" + 
+		"XPath: " + xPath + "\n");
 		return result.toString();
 	}
 }
