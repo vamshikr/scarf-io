@@ -5,6 +5,9 @@
   <property name="target" value="1.8"/>
   <path id="project.classpath">
     <pathelement location="bin"/>
+    <fileset dir="lib">
+        <include name="**/*.jar"/>
+    </fileset>
   </path>
   <path id="project.bootclasspath"/>
   <path id="project.sourcepath">
@@ -18,7 +21,14 @@
     <mkdir dir="bin"/>
   </target>
   <target depends="init" name="build">
-    <javac bootclasspathref="project.bootclasspath" classpathref="project.classpath" destdir="bin" encoding="UTF-8" includeantruntime="false" source="${source}" sourcepathref="project.sourcepath" target="${target}">
+    <javac bootclasspathref="project.bootclasspath"
+           classpathref="project.classpath"
+           destdir="bin"
+           encoding="UTF-8"
+           includeantruntime="false"
+           source="${source}"
+           sourcepathref="project.sourcepath"
+           target="${target}">
       <src path="src"/>
     </javac>
   </target>

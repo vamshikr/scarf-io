@@ -24,7 +24,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
 public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private ScarfInterface scarfCallbacks;
@@ -33,6 +32,7 @@ public class ScarfXmlReader {
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
 		logger = LoggerFactory.getLogger(ScarfXmlReader.class);
+	    logger.info("Hello World");
 	}
 
 	private void parse() {
@@ -50,7 +50,7 @@ public class ScarfXmlReader {
 		try {
 			reader.close();
 		} catch (XMLStreamException e) {
-			e.printStackTrace();
+			logger.error("Parsing error", e);
 		}
 	}
 	
@@ -103,7 +103,8 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Parsing error", e);
 		}
 		return "";
 	}
@@ -124,7 +125,8 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return list;
 	}
@@ -172,10 +174,12 @@ public class ScarfXmlReader {
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return ms;
 	}
@@ -235,7 +239,8 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return bug;
 	}
@@ -266,7 +271,8 @@ public class ScarfXmlReader {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return bt;
 	}
@@ -308,7 +314,8 @@ public class ScarfXmlReader {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return il;
 	}
@@ -329,7 +336,8 @@ public class ScarfXmlReader {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return summary;
 	}
@@ -364,7 +372,8 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return list;
 	}
@@ -386,7 +395,8 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return list;
 	}
@@ -431,10 +441,12 @@ public class ScarfXmlReader {
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return location;
 	}
@@ -473,10 +485,12 @@ public class ScarfXmlReader {
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("Error while handling Metric Summaries", e);
 		}
 		return metric;
 	}
