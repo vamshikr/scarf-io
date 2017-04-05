@@ -20,14 +20,19 @@ import datastructures.Location;
 import datastructures.Method;
 import datastructures.Metric;
 import datastructures.MetricSummary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 
 public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private ScarfInterface scarfCallbacks;
+	private Logger logger;
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
+		logger = LoggerFactory.getLogger(ScarfXmlReader.class);
 	}
 
 	private void parse() {
@@ -107,7 +112,8 @@ public class ScarfXmlReader {
 		List<MetricSummary> list = new ArrayList<>();
 		try {
 			while (reader.hasNext()) {
-				if (reader.next() == XMLEvent.START_ELEMENT && reader.getLocalName().equals(Constants.METRIC_SUMMARY)) {
+				//if (reader.next() == XMLEvent.START_ELEMENT && reader.getLocalName().equals(Constants.METRIC_SUMMARY)) {
+				if (reader.next() == XMLEvent.START_ELEMENT && Constants.METRIC_SUMMARY.equals(reader.getLocalName())) {	
 					list.add(handleMetricSummary());
 				}
 				else {
@@ -154,6 +160,8 @@ public class ScarfXmlReader {
 					case Constants.METRIC_SUMMARY_STANDARD_DEVIATION:
 						ms.setStdDev(Double.parseDouble(getChars(Constants.METRIC_SUMMARY_STANDARD_DEVIATION)));
 						break;
+					default:
+						System.err.println("Unknown metrics element");
 					}
 				}
 				else {
@@ -215,6 +223,8 @@ public class ScarfXmlReader {
 					case Constants.BUG_INSTANCE_BUG_CODE:
 						bug.setBugCode(getChars(Constants.BUG_INSTANCE_BUG_CODE));
 						break;
+					default:
+						System.err.println("Unknown BugInstance element");
 					}
 				}
 				else {
@@ -245,6 +255,8 @@ public class ScarfXmlReader {
 						case Constants.BUG_TRACE_INSTANCE_LOCATION:
 							bt.setInstanceLocation(handleInstanceLocation());
 							break;
+						default:
+							System.err.println("Unknown BugTrace element");
 					}
 				}
 				else {
@@ -306,7 +318,7 @@ public class ScarfXmlReader {
 		try {
 			while (reader.hasNext()) {
 				if (reader.next() == XMLEvent.START_ELEMENT) {
-					if (reader.getLocalName().equals(Constants.BUG_CATEGORY)) {
+					if (Constants.BUG_CATEGORY.equals(reader.getLocalName())) {
 						summary.add(handleBugCategory());
 					}
 				}
@@ -336,7 +348,7 @@ public class ScarfXmlReader {
 		try {
 			while (reader.hasNext()) {
 				int eventType = reader.next();
-				if (eventType == XMLEvent.START_ELEMENT && reader.getLocalName().equals(Constants.METHOD)) {
+				if (eventType == XMLEvent.START_ELEMENT && Constants.METHOD.equals(reader.getLocalName())) {
 					String namespace = reader.getNamespaceURI();
 					String id = reader.getAttributeValue(namespace, Constants.ID);
 					String primary = reader.getAttributeValue(namespace, Constants.PRIMARY);
@@ -362,7 +374,7 @@ public class ScarfXmlReader {
 		try {
 			while (reader.hasNext()) {
 				int eventType = reader.next();
-				if (eventType == XMLEvent.START_ELEMENT && reader.getLocalName().equals(Constants.LOCATION)) {
+				if (eventType == XMLEvent.START_ELEMENT && Constants.LOCATION.equals(reader.getLocalName())) {
 					Location l = handleLocation();
 					list.add(l);
 				}
@@ -407,6 +419,8 @@ public class ScarfXmlReader {
 					case Constants.LOCATION_EXPLANATION:
 						location.setExplanation(getChars(Constants.LOCATION_EXPLANATION));
 						break;
+					default:
+						System.err.println("Unknown BugLocation child element");
 					}
 				}
 				else {
@@ -447,6 +461,8 @@ public class ScarfXmlReader {
 					case Constants.METRIC_VALUE:
 						metric.setMetricType(getChars(Constants.METRIC_VALUE));
 						break;
+					default:
+						System.err.println("Unknown Metrics element");
 					}
 				}
 				else {
