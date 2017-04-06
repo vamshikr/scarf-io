@@ -5,10 +5,6 @@ public class BugTrace {
 	private String assessmentReportFile;
 	private InstanceLocation instanceLocation;
 	
-	public BugTrace() {
-		
-	}
-	
 	public void setBuildID(String id) {
 		buildId = id;
 	}

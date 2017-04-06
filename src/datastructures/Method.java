@@ -3,12 +3,12 @@ package datastructures;
 public class Method {
 	private final String id;
 	private final String name;
-	private final boolean isPrimary;
+	private final boolean is_primary;
 	
 	public Method(String id, String name, boolean primary) {
 		this.id = id;
 		this.name = name;
-		this.isPrimary = primary;
+		this.is_primary = primary;
 	}
 	
 	public String getID() {
@@ -20,7 +20,7 @@ public class Method {
 	}
 	
 	public boolean isPrimary() {
-		return isPrimary;
+		return is_primary;
 	}
 
 }

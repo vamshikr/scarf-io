@@ -25,9 +25,9 @@ public class InitialInfo {
 	
 	@Override
 	public String toString() {
-		String result = "Tool name: " + toolName + "\n";
-		result += "Tool version: " + toolVersion + "\n";
-		result += "Tool UUID: " + uuid + "\n";
-		return result;
+		StringBuilder result = new StringBuilder("Tool name: " + toolName + "\n" +
+		"Tool version: " + toolVersion + "\n" +
+		"Tool UUID: " + uuid + "\n");
+		return result.toString();
 	}
 }

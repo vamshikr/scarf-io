@@ -1,9 +1,9 @@
 package datastructures;
 
 public class InstanceLocation {
-	int startLine;
-	int endLine;
-	String xPath;
+	private int startLine;
+	private int endLine;
+	private String xPath;
 	
 	public int getStartLine() {
 		return startLine;
