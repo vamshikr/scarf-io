@@ -30,6 +30,7 @@ public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private final ScarfInterface scarfCallbacks;
 	private static final Logger logger = LoggerFactory.getLogger(ScarfXmlReader.class);
+	private final String errMsg = "Ops!"
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
@@ -45,12 +46,12 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			//e.printStackTrace();
-			logger.error("Error", e);
+			logger.error(errMsg, e);
 		}
 		try {
 			reader.close();
 		} catch (XMLStreamException e) {
-			logger.error("Parsing error", e);
+			logger.error(errMsg, e);
 		}
 	}
 	
@@ -108,7 +109,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Parsing error", e);
+			logger.error(errMsg, e);
 		}
 		return ret_val;
 	}
@@ -130,7 +131,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return list;
 	}
@@ -180,11 +181,11 @@ public class ScarfXmlReader {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return ms;
 	}
@@ -246,7 +247,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return bug;
 	}
@@ -279,7 +280,7 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return bt;
 	}
@@ -324,7 +325,7 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return il;
 	}
@@ -346,7 +347,7 @@ public class ScarfXmlReader {
 			}
 		} catch (XMLStreamException e) {
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return summary;
 	}
@@ -382,7 +383,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return list;
 	}
@@ -405,7 +406,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return list;
 	}
@@ -452,11 +453,11 @@ public class ScarfXmlReader {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return location;
 	}
@@ -497,11 +498,11 @@ public class ScarfXmlReader {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error(errMsg, e);
 		}
 		return metric;
 	}
