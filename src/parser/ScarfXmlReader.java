@@ -30,7 +30,7 @@ public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private final ScarfInterface scarfCallbacks;
 	private static final Logger logger = LoggerFactory.getLogger(ScarfXmlReader.class);
-	private final String errMsg = "Ops!"
+	private final String errMsg = "Ops!";
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
