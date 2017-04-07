@@ -153,7 +153,7 @@ public class BugInstance {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Bug id: " + bugId + "\n" + 
+		return "Bug id: " + bugId + "\n" + 
 		"Class name: " + className + "\n" + 
 		"Bug severity: " + bugSeverity + "\n" + 
 		"Bug rank: " + bugRank + "\n" + 
@@ -163,8 +163,7 @@ public class BugInstance {
 		"Bug group: " + bugGroup + "\n" + 
 		"Assessment report file: " + assessmentReportFile + "\n" + 
 		"Build ID: " + buildId + "\n" + 
-		"Bug Trace: " + bugTrace.toString() + "\n");
-		return result.toString();
+		"Bug Trace: " + bugTrace.toString() + "\n";
 	}
 }
 

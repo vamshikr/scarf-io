@@ -3,6 +3,7 @@ package parser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ScarfXmlReader {
 	private XMLStreamReader reader;
 	private final ScarfInterface scarfCallbacks;
 	private static final Logger logger = LoggerFactory.getLogger(ScarfXmlReader.class);
-	private final String errMsg = "Ops!";
+	private static final String errMsg = "Ops!";
 	
 	public ScarfXmlReader(ScarfInterface s) {
 		scarfCallbacks = s;
@@ -315,6 +316,8 @@ public class ScarfXmlReader {
 							}
 						}
 						break;
+					default:
+						break;
 					}
 				}
 				else {
@@ -371,8 +374,7 @@ public class ScarfXmlReader {
 					String id = reader.getAttributeValue(namespace, Constants.ID);
 					String primary = reader.getAttributeValue(namespace, Constants.PRIMARY);
 					String name = reader.getElementText();
-					Method m = new Method(id, name, Boolean.parseBoolean(primary));
-					list.add(m);
+					list.add(new Method(id, name, Boolean.parseBoolean(primary)));
 				}
 				else {
 					if (isEndElement(Constants.BUG_INSTANCE_METHODS)) {
@@ -511,14 +513,24 @@ public class ScarfXmlReader {
 	}
 	
 	public void parseFromFile(File f) {
+		InputStream stream = null;
 		try {
 			XMLInputFactory factory = XMLInputFactory.newInstance();
-			InputStream stream = new FileInputStream(f);
+			 stream = new FileInputStream(f);
 			reader = factory.createXMLStreamReader(stream);
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: Unable to open XML stream in specified file");
 		}catch (XMLStreamException e) {
 			System.err.println("Error: Unable to open XML stream in specified file");
+		}finally {
+			if (stream != null){
+				try {
+					stream.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					logger.error(errMsg, e);
+				}
+			}
 		}
 		parse();
 	}
