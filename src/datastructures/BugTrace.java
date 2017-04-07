@@ -5,7 +5,7 @@ public class BugTrace {
 	private String assessmentReportFile;
 	private InstanceLocation instanceLocation;
 	
-	public void setBuildID(String id) {
+	public void setBuildID(final String id) {
 		buildId = id;
 	}
 	
@@ -13,7 +13,7 @@ public class BugTrace {
 		return buildId;
 	}
 	
-	public void setAssessmentReportFile(String filepath) {
+	public void setAssessmentReportFile(final String filepath) {
 		assessmentReportFile = filepath;
 	}
 	
@@ -21,7 +21,7 @@ public class BugTrace {
 		return assessmentReportFile;
 	}
 	
-	public void setInstanceLocation(InstanceLocation instanceLoc) {
+	public void setInstanceLocation(final InstanceLocation instanceLoc) {
 		instanceLocation = instanceLoc;
 	}
 	
@@ -31,8 +31,8 @@ public class BugTrace {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Build ID: " + buildId + "\n");
-		result.append("Assessment Report File: " + assessmentReportFile + "\n");
+		StringBuilder result = new StringBuilder("Build ID: " + buildId + "\n" +
+		"Assessment Report File: " + assessmentReportFile + "\n");
 		if (instanceLocation != null) { result.append(instanceLocation.toString()); }
 		return result.toString();
 	}

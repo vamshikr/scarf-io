@@ -6,7 +6,7 @@ public class BugCategory {
 	private final String bugCode;
 	private final String bugGroup;
 	
-	public BugCategory(int cnt, int bytes, String code, String group) {
+	public BugCategory(final int cnt, final int bytes, final String code, final String group) {
 		count = cnt;
 		byteCount = bytes;
 		bugCode = code;

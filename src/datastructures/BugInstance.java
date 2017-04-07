@@ -20,7 +20,7 @@ public class BugInstance {
 	private String buildId;
 	private BugTrace bugTrace;
 	
-	public BugInstance(int id) {
+	public BugInstance(final int id) {
 		bugId = id;
 		cweIds = new ArrayList<>();
 		methods = new ArrayList<>();
@@ -31,7 +31,7 @@ public class BugInstance {
 		return bugId;
 	}
 	
-	public void addCWE(int id) {
+	public void addCWE(final int id) {
 		cweIds.add(id);
 	}
 	
@@ -39,11 +39,11 @@ public class BugInstance {
 		return new ArrayList<Integer>(cweIds);
 	}
 	
-	public void addMethod(Method m) {
+	public void addMethod(final Method m) {
 		methods.add(m);
 	}
 	
-	public void addMethods(List<Method> list) {
+	public void addMethods (final List<Method> list) {
 		methods.addAll(list);
 	}
 	
@@ -51,11 +51,11 @@ public class BugInstance {
 		return new ArrayList<Method>(methods);
 	}
 	
-	public void addLocation(Location l) {
+	public void addLocation(final Location l) {
 		locations.add(l);
 	}
 	
-	public void addLocations(List<Location> list) {
+	public void addLocations(final List<Location> list) {
 		locations.addAll(list);
 	}
 	
@@ -63,7 +63,7 @@ public class BugInstance {
 		return new ArrayList<Location>(locations);
 	}
 	
-	public void setInstanceLocation(InstanceLocation i) {
+	public void setInstanceLocation(final InstanceLocation i) {
 		instanceLoc = i;
 	}
 	
@@ -71,7 +71,7 @@ public class BugInstance {
 		return instanceLoc;
 	}
 	
-	public void setClassName(String name) {
+	public void setClassName(final String name) {
 		className = name;
 	}
 	
@@ -79,7 +79,7 @@ public class BugInstance {
 		return className;
 	}
 	
-	public void setBugSeverity(String severity) {
+	public void setBugSeverity(final String severity) {
 		bugSeverity = severity;
 	}
 	
@@ -87,7 +87,7 @@ public class BugInstance {
 		return bugSeverity;
 	}
 	
-	public void setBugRank(String rank) {
+	public void setBugRank(final String rank) {
 		bugRank = rank;
 	}
 	
@@ -95,7 +95,7 @@ public class BugInstance {
 		return bugRank;
 	}
 	
-	public void setResolutionSuggestion(String sugg) {
+	public void setResolutionSuggestion(final String sugg) {
 		resolutionSuggestion = sugg;
 	}
 	
@@ -103,7 +103,7 @@ public class BugInstance {
 		return resolutionSuggestion;
 	}
 	
-	public void setBugMessage(String msg) {
+	public void setBugMessage(final String msg) {
 		bugMessage = msg;
 	}
 	
@@ -111,7 +111,7 @@ public class BugInstance {
 		return bugMessage;
 	}
 	
-	public void setBugCode(String code) {
+	public void setBugCode(final String code) {
 		bugCode = code;
 	}
 	
@@ -119,7 +119,7 @@ public class BugInstance {
 		return bugCode;
 	}
 	
-	public void setBugGroup(String grp) {
+	public void setBugGroup(final String grp) {
 		bugGroup = grp;
 	}
 	
@@ -127,7 +127,7 @@ public class BugInstance {
 		return bugGroup;
 	}
 	
-	public void setAssessmentReportFile(String file) {
+	public void setAssessmentReportFile(final String file) {
 		assessmentReportFile = file;
 	}
 	
@@ -135,7 +135,7 @@ public class BugInstance {
 		return assessmentReportFile;
 	}
 	
-	public void setBuildId(String id) {
+	public void setBuildId(final String id) {
 		buildId = id;
 	}
 	
@@ -143,7 +143,7 @@ public class BugInstance {
 		return buildId;
 	}
 	
-	public void setBugTrace(BugTrace b) {
+	public void setBugTrace(final BugTrace b) {
 		bugTrace = b;
 	}
 	

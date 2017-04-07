@@ -79,6 +79,8 @@ public class ScarfXmlReader {
 				scarfCallbacks.metricSummaryCallback(m);
 			}
 			break;
+		default:
+			break;
 		}
 	}
 	
@@ -128,7 +130,7 @@ public class ScarfXmlReader {
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			logger.error("Error while handling Metric Summaries", e);
+			logger.error("Error handling Metric Summaries", e);
 		}
 		return list;
 	}
@@ -504,7 +506,7 @@ public class ScarfXmlReader {
 		return metric;
 	}
 	private boolean isEndElement(String name) {
-		return (reader.getEventType() == XMLEvent.END_ELEMENT) && reader.getLocalName().equals(name);
+		return reader.getEventType() == XMLEvent.END_ELEMENT && reader.getLocalName().equals(name);
 	}
 	
 	public void parseFromFile(File f) {
@@ -522,11 +524,10 @@ public class ScarfXmlReader {
 	
 	public void parseFromFilepath(String filepath) {
 		File f = new File(filepath);
-		if (!f.exists()) {
-			System.err.println("Error: Invalid filepath");
-		}
-		else {
+		if (f.exists()) {
 			parseFromFile(f);
+		} else {
+			System.err.println("Error: Invalid filepath");
 		}
 	}
 	
