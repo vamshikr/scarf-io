@@ -1,9 +1,9 @@
-package datastructures;
+package org.continuousassurance.scarf.datastructures;
 
 public class InitialInfo {
-	private final String toolName;
-	private final String toolVersion;
-	private final String uuid;
+	private String toolName;
+	private String toolVersion;
+	private String uuid;
 	
 	public InitialInfo(String toolName, String toolVersion, String uuid) {
 		this.toolName = toolName;
@@ -25,9 +25,9 @@ public class InitialInfo {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Tool name: " + toolName + "\n" +
-		"Tool version: " + toolVersion + "\n" +
-		"Tool UUID: " + uuid + "\n");
-		return result.toString();
+		String result = "Tool name: " + toolName + "\n";
+		result += "Tool version: " + toolVersion + "\n";
+		result += "Tool UUID: " + uuid + "\n";
+		return result;
 	}
 }

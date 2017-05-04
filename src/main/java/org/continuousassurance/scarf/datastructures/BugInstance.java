@@ -1,13 +1,13 @@
-package datastructures;
+package org.continuousassurance.scarf.datastructures;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BugInstance {
-	private final int bugId;
-	private final List<Integer> cweIds;
-	private final List<Method> methods;
-	private final List<Location> locations;
+	private int bugId;
+	private List<Integer> cweIds;
+	private List<Method> methods;
+	private List<Location> locations;
 	private InstanceLocation instanceLoc;
 	private String className;
 	private String bugSeverity;
@@ -20,7 +20,7 @@ public class BugInstance {
 	private String buildId;
 	private BugTrace bugTrace;
 	
-	public BugInstance(final int id) {
+	public BugInstance(int id) {
 		bugId = id;
 		cweIds = new ArrayList<>();
 		methods = new ArrayList<>();
@@ -31,7 +31,7 @@ public class BugInstance {
 		return bugId;
 	}
 	
-	public void addCWE(final int id) {
+	public void addCWE(int id) {
 		cweIds.add(id);
 	}
 	
@@ -39,11 +39,11 @@ public class BugInstance {
 		return new ArrayList<Integer>(cweIds);
 	}
 	
-	public void addMethod(final Method m) {
+	public void addMethod(Method m) {
 		methods.add(m);
 	}
 	
-	public void addMethods (final List<Method> list) {
+	public void addMethods(List<Method> list) {
 		methods.addAll(list);
 	}
 	
@@ -51,11 +51,11 @@ public class BugInstance {
 		return new ArrayList<Method>(methods);
 	}
 	
-	public void addLocation(final Location l) {
+	public void addLocation(Location l) {
 		locations.add(l);
 	}
 	
-	public void addLocations(final List<Location> list) {
+	public void addLocations(List<Location> list) {
 		locations.addAll(list);
 	}
 	
@@ -63,7 +63,7 @@ public class BugInstance {
 		return new ArrayList<Location>(locations);
 	}
 	
-	public void setInstanceLocation(final InstanceLocation i) {
+	public void setInstanceLocation(InstanceLocation i) {
 		instanceLoc = i;
 	}
 	
@@ -71,7 +71,7 @@ public class BugInstance {
 		return instanceLoc;
 	}
 	
-	public void setClassName(final String name) {
+	public void setClassName(String name) {
 		className = name;
 	}
 	
@@ -79,7 +79,7 @@ public class BugInstance {
 		return className;
 	}
 	
-	public void setBugSeverity(final String severity) {
+	public void setBugSeverity(String severity) {
 		bugSeverity = severity;
 	}
 	
@@ -87,7 +87,7 @@ public class BugInstance {
 		return bugSeverity;
 	}
 	
-	public void setBugRank(final String rank) {
+	public void setBugRank(String rank) {
 		bugRank = rank;
 	}
 	
@@ -95,7 +95,7 @@ public class BugInstance {
 		return bugRank;
 	}
 	
-	public void setResolutionSuggestion(final String sugg) {
+	public void setResolutionSuggestion(String sugg) {
 		resolutionSuggestion = sugg;
 	}
 	
@@ -103,7 +103,7 @@ public class BugInstance {
 		return resolutionSuggestion;
 	}
 	
-	public void setBugMessage(final String msg) {
+	public void setBugMessage(String msg) {
 		bugMessage = msg;
 	}
 	
@@ -111,7 +111,7 @@ public class BugInstance {
 		return bugMessage;
 	}
 	
-	public void setBugCode(final String code) {
+	public void setBugCode(String code) {
 		bugCode = code;
 	}
 	
@@ -119,7 +119,7 @@ public class BugInstance {
 		return bugCode;
 	}
 	
-	public void setBugGroup(final String grp) {
+	public void setBugGroup(String grp) {
 		bugGroup = grp;
 	}
 	
@@ -127,7 +127,7 @@ public class BugInstance {
 		return bugGroup;
 	}
 	
-	public void setAssessmentReportFile(final String file) {
+	public void setAssessmentReportFile(String file) {
 		assessmentReportFile = file;
 	}
 	
@@ -135,7 +135,7 @@ public class BugInstance {
 		return assessmentReportFile;
 	}
 	
-	public void setBuildId(final String id) {
+	public void setBuildId(String id) {
 		buildId = id;
 	}
 	
@@ -143,7 +143,7 @@ public class BugInstance {
 		return buildId;
 	}
 	
-	public void setBugTrace(final BugTrace b) {
+	public void setBugTrace(BugTrace b) {
 		bugTrace = b;
 	}
 	
@@ -153,17 +153,18 @@ public class BugInstance {
 	
 	@Override
 	public String toString() {
-		return "Bug id: " + bugId + "\n" + 
-		"Class name: " + className + "\n" + 
-		"Bug severity: " + bugSeverity + "\n" + 
-		"Bug rank: " + bugRank + "\n" + 
-		"Resolution suggestion: " + resolutionSuggestion + "\n" + 
-		"Bug message: " + bugMessage + "\n" + 
-		"Bug code: " + bugCode + "\n" + 
-		"Bug group: " + bugGroup + "\n" + 
-		"Assessment report file: " + assessmentReportFile + "\n" + 
-		"Build ID: " + buildId + "\n" + 
-		"Bug Trace: " + bugTrace.toString() + "\n";
+		String result = "Bug id: " + bugId + "\n";
+		result += "Class name: " + className + "\n";
+		result += "Bug severity: " + bugSeverity + "\n";
+		result += "Bug rank: " + bugRank + "\n";
+		result += "Resolution suggestion: " + resolutionSuggestion + "\n";
+		result += "Bug message: " + bugMessage + "\n";
+		result += "Bug code: " + bugCode + "\n";
+		result += "Bug group: " + bugGroup + "\n";
+		result += "Assessment report file: " + assessmentReportFile + "\n";
+		result += "Build ID: " + buildId + "\n";
+		result += "Bug Trace: " + bugTrace.toString() + "\n";
+		return result;
 	}
 }
 

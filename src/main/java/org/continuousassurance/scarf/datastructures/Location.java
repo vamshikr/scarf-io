@@ -1,8 +1,8 @@
-package datastructures;
+package org.continuousassurance.scarf.datastructures;
 
 public class Location {
-	private final String id;
-	private final boolean primary;
+	private String id;
+	private boolean primary;
 	private int startLine;
 	private int endLine;
 	private int startColumn;

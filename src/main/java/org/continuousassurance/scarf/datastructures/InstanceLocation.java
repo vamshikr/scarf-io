@@ -1,9 +1,9 @@
-package datastructures;
+package org.continuousassurance.scarf.datastructures;
 
 public class InstanceLocation {
-	private int startLine;
-	private int endLine;
-	private String xPath;
+	int startLine;
+	int endLine;
+	String xPath;
 	
 	public int getStartLine() {
 		return startLine;
@@ -31,9 +31,9 @@ public class InstanceLocation {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Start line: " + startLine + "\n" + 
-		"End line: " + endLine + "\n" + 
-		"XPath: " + xPath + "\n");
-		return result.toString();
+		String result = "Start line: " + startLine + "\n";
+		result += "End line: " + endLine + "\n";
+		result += "XPath: " + xPath + "\n";
+		return result;
 	}
 }

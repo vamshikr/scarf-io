@@ -1,4 +1,4 @@
-package datastructures;
+package org.continuousassurance.scarf.datastructures;
 
 public class MetricSummary {
 	private String metricType;
@@ -76,15 +76,15 @@ public class MetricSummary {
 	
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder("Metric type: " + metricType + "\n" + 
-		"Count: " + count + "\n" + 
-		"Sum: " + sum + "\n" + 
-		"Sum of Squares: " + sumOfSquares + "\n" + 
-		"Min: " + min + "\n" + 
-		"Max: " + max + "\n" + 
-		"Average: " + average + "\n" + 
-		"Standard Deviation: " + stdDev + "\n"); 
-		return result.toString();
+		String result = "Metric type: " + metricType + "\n";
+		result += "Count: " + count + "\n";
+		result += "Sum: " + sum + "\n";
+		result += "Sum of Squares: " + sumOfSquares + "\n";
+		result += "Min: " + min + "\n";
+		result += "Max: " + max + "\n";
+		result += "Average: " + average + "\n";
+		result += "Standard Deviation: " + stdDev + "\n";
+		return result;
 	}
 	
 }
